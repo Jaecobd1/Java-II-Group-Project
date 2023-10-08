@@ -7,9 +7,14 @@ import javafx.scene.input.MouseEvent;
 import javafx.collections.FXCollections;
 
 import javafx.geometry.Pos;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 // Started by Jake Dobler
@@ -28,7 +33,7 @@ public class GameBoard {
 		
 		Label title = new Label("Clue");
 		title.getStyleClass().add("title");
-		HBox titleBar = new HBox(title);
+		VBox titleBar = new VBox(title, new Label("Created by: Jake Dobler & Genevieve Mathews"));
 		titleBar.setAlignment(Pos.CENTER);
 		Button start = new Button("Start");
 		start.setOnAction(e -> {
@@ -98,7 +103,7 @@ public class GameBoard {
 		}
 		
 		
-		
+		setUpGameBoard();
 		
 		
 		
@@ -138,8 +143,52 @@ public class GameBoard {
 	
 	// Show currentPlayer 
 	private void displayCurrentPlayer() {
-		board.getChildren().clear();
 		board.getChildren().add(new Label(currentPlayer.name));
+		
+	}
+	
+	private void updateGameBoard() {
+		
+	}
+	
+	private void setUpGameBoard() {
+		board.getChildren().clear();
+//		displayCurrentPlayer();
+		Canvas canvas = new Canvas(800, 700);
+		GraphicsContext gc = canvas.getGraphicsContext2D();
+		
+		// Set a background color
+		gc.setFill(Color.ANTIQUEWHITE);
+		gc.fillRect(0, 0, 800, 800);
+		
+		// Create Rooms & Tiles
+		Tile tiles[] = new Tile[256];
+		for(int x = 0; x < 16; x++) {
+			for(int y = 0; y < 16; y++) {
+				if(x == 0){
+					Tile tile = new Tile(gc, x, y, null);
+					tiles[x] = tile;
+				} else {
+					Tile tile = new Tile(gc, x, y, tiles[x]);
+					tiles[x] = tile;
+				}
+			}
+		}
+		
+		
+		// Study Room Code
+//		gc.setFill(Color.WHITE);
+//		gc.fillRect(0, 0, 150, 150);
+//		
+//		gc.setFill(Color.BLACK);
+//		gc.setLineWidth(3);
+//		Font font = Font.font("Times New Roman", FontWeight.LIGHT, 26);
+//		gc.setFont(font);
+//		gc.fillText("Study", 50, 75);
+		
+		
+		
+		board.setCenter(canvas);
 		
 	}
 	
