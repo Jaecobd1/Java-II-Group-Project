@@ -33,13 +33,74 @@ public class GameBoard {
 		Button start = new Button("Start");
 		start.setOnAction(e -> {
 			
-		displayGameBoard();
+		startGame();
 		});
 		board.setTop(titleBar);
 		board.setCenter(start);
 	}
 	
-	private void displayGameBoard() {
+	private void startGame() {
+		String suspects[] = {
+				"Mrs. White",
+				"Mrs. Peacock",
+				"Professor Plum",
+				"Colonel Mustard",
+				"Miss Scarlett",
+				"Reverend Green",
+		};
+		
+		String weapons[] = {
+				"Knife",
+				"Revolver",
+				"Rope",
+				"Wrench",
+				"Candelstick",
+				"Lead Pipe",
+		};
+		String rooms[] = {
+				"BallRoom",
+				"Billards Room",
+				"Conservatory",
+				"Dining Room",
+				"Hall",
+				"Kitchen",
+				"Lounge",
+				"Libaray",
+				"Study",
+		};
+		
+		// Create instances of all of the possible 
+		// suspects, rooms and weapons
+		Suspect suspectCards[] = new Suspect[6];
+		int suspectCount = 0;
+		for(String suspect: suspects) {
+			suspectCards[suspectCount] = new Suspect(suspect);
+			suspectCount++;
+		}
+		Weapon weaponCards[] = new Weapon[6];
+		int weaponCount = 0;
+		for (String weapon: weapons) {
+			weaponCards[weaponCount] =  new Weapon(weapon);
+			weaponCount++;
+		}
+		Room roomCards[] = new Room[9];
+		int roomCount = 0;
+		for (String room: rooms) {
+			roomCards[roomCount] = new Room(room);
+			roomCount++;
+		}
+		
+		// Select a suspect, weapon, and room **Important part of game**
+		
+		for(Suspect suspect: suspectCards) {
+			// Testing that it work
+			System.out.println(suspect.clueName);
+		}
+		
+		
+		
+		
+		
 		
 	}
 	
@@ -103,8 +164,5 @@ public class GameBoard {
 //			Player p1 = Player()
 //		});
 //	}
-	
-	
-	
 	
 }

@@ -1,5 +1,11 @@
 package application;
 // Started by Jake Dobler
-public class Clue {
+abstract public class Clue {
+	String clueName;
 
+	public Clue(String name) {
+		// TODO Auto-generated constructor stub
+		this.clueName = name;
+	}
+	
 }
