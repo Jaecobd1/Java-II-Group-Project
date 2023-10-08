@@ -8,8 +8,11 @@ public class Tile {
 	// Reference to other tiles
 	Tile prev, next, above, below;
 	Clue clueOnTile = null;
+	int x, y;
 	
 	public Tile(GraphicsContext gc, int x, int y, Tile prev) {
+		this.x = x;
+		this.y = y;
 		if(this.prev == null) {
 			this.next = null;
 		}else {
