@@ -6,11 +6,9 @@ import javafx.scene.paint.Color;
 // Started By Jake Dobler
 public class Tile {
 	// Reference to other tiles
-	Tile prev = null;
-	Tile next = null;
+	Tile prev, next, above, below;
 	Clue clueOnTile = null;
 	
-	// Blank Tile (Not useful except for very first tile created)
 	public Tile(GraphicsContext gc, int x, int y, Tile prev) {
 		if(this.prev == null) {
 			this.next = null;
@@ -18,6 +16,24 @@ public class Tile {
 			this.prev = prev;
 			this.prev.next = this;
 		}
+		
+		
+		
+		draw(gc, x * 50, y * 50);
+		
+	}
+	
+	public Tile(GraphicsContext gc, int x, int y, Tile prev, Tile above) {
+		if(this.prev == null) {
+			this.next = null;
+		}else {
+			this.prev = prev;
+			this.prev.next = this;
+		}
+		
+		
+		this.above.below = this;
+		
 		
 		draw(gc, x * 50, y * 50);
 		

@@ -162,15 +162,19 @@ public class GameBoard {
 		gc.fillRect(0, 0, 800, 800);
 		
 		// Create Rooms & Tiles
-		Tile tiles[] = new Tile[256];
+		Tile tiles[][] = new Tile[16][16];
 		for(int x = 0; x < 16; x++) {
 			for(int y = 0; y < 16; y++) {
 				if(x == 0){
 					Tile tile = new Tile(gc, x, y, null);
-					tiles[x] = tile;
-				} else {
-					Tile tile = new Tile(gc, x, y, tiles[x]);
-					tiles[x] = tile;
+					tiles[x][y] = tile;
+				}  if(y >= 1){
+					Tile tile = new Tile(gc, x, y, tiles[x][y - 1]);
+					tiles[x][y] = tile;
+				}
+				else {
+					Tile tile = new Tile(gc, x, y, tiles[x][y]);
+					tiles[x][y] = tile;
 				}
 			}
 		}
