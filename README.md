@@ -6,8 +6,11 @@
 
 Work Distribution:
 Jake Dobler - init the project and create classes Gameboard/ Tiles (GUI & logic)
+
 Genevieve Matthews - Clues (Cards)
+
 Daniel Reyes - Assumptions page (making a guess)
+
 Garret Kellogg - Rooms & Players (GUI & Logic)
 
 Classes:
