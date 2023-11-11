@@ -14,7 +14,6 @@ public class Player {
 
 		this.color = color;
 		this.currentTile = currentTile;
-		// comment
 		gc.setFill(color);
 		gc.fillOval((currentTile.x * 50) + 10, (currentTile.y * 50) + 10, 25, 25);
 	}
