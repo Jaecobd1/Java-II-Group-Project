@@ -6,4 +6,13 @@ public class Suspect extends Clue{
 		super(clue);
 	}
 
+	String suspects[] = {
+			"Mrs. White",
+			"Mrs. Peacock",
+			"Professor Plum",
+			"Colonel Mustard",
+			"Miss Scarlett",
+			"Reverend Green",
+	};
+
 }
