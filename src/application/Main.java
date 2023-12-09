@@ -12,6 +12,7 @@ public class Main extends Application {
 		try {
 			BorderPane root = new BorderPane();
 			GameBoard board = new GameBoard(root);
+			board.displayStartScreen();
 			Scene scene = new Scene(root, 800, 1000);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);

@@ -52,12 +52,11 @@ public class GameBoard {
 	// Creates a GameBoard and displays the start screen
 	public GameBoard(BorderPane board) {
 		this.board = board;
-		displayStartScreen();
 	}
 
 	// Show a start screen
 	// Allow user to move to player select
-	private void displayStartScreen() {
+	public void displayStartScreen() {
 
 		Label title = new Label("Clue");
 		title.getStyleClass().add("title");
@@ -65,7 +64,6 @@ public class GameBoard {
 		titleBar.setAlignment(Pos.CENTER);
 		Button start = new Button("Start");
 		start.setOnAction(e -> {
-
 			startGame();
 		});
 		board.setTop(titleBar);
@@ -100,8 +98,7 @@ public class GameBoard {
 		for (Suspect suspect : suspectCards) {
 			System.out.println(suspect.clueName);
 		}
-
-		setUpGameBoard();
+		this.setUpGameBoard();
 
 	}
 
@@ -142,8 +139,9 @@ public class GameBoard {
 
 	// refresh the visuals on the game board after a player moves
 	private void updateGameBoard() {
-
+	    
 	}
+	
 
 	// Creates a linked list of tiles
 	private void setUpGameBoard() {
@@ -151,7 +149,6 @@ public class GameBoard {
 		// displayCurrentPlayer();
 		Canvas canvas = new Canvas(750, 750);
 		GraphicsContext gc = canvas.getGraphicsContext2D();
-
 		// Set a background color
 		gc.setFill(Color.ANTIQUEWHITE);
 		gc.fillRect(0, 0, 800, 800);
@@ -319,30 +316,7 @@ public class GameBoard {
 			Player player = new Player(suspects[i], gc, colors[i], locations[i]);
 			playerList[i] = player;
 		}
-
 		board.setCenter(canvas);
-
 	}
-
-	// Stinky Code
-	// private void createPlayers(int num) {
-	// board.getChildren().clear();
-	// VBox inputs = new VBox();
-	// for(int i = 0; i < num ; i++) {
-	// // Show an input for each players
-	// int curPlayerNum = i +1;
-	// Label nameLabel = new Label("Player #" + curPlayerNum + " name:");
-	// TextField name = new TextField();
-	// HBox nameHB = new HBox(nameLabel, name);
-	//
-	// inputs.getChildren().add(nameHB);
-	// }
-	// Button submit = new Button("Submit");
-	// inputs.getChildren().add(submit);
-	// board.setCenter(inputs);
-	// submit.setOnAction(e->{
-	// Player p1 = Player()
-	// });
-	// }
-
+	
 }

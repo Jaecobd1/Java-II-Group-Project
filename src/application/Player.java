@@ -17,6 +17,7 @@ public class Player {
 		gc.setFill(color);
 		gc.fillOval((currentTile.x * 50) + 10, (currentTile.y * 50) + 10, 25, 25);
 	}
+	
 
 	public void movePlayer(Tile currentTile) {
 		this.currentTile = currentTile;
